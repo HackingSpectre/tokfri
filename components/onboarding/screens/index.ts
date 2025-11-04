@@ -1,0 +1,11 @@
+export { default as Splash1 } from './Splash1';
+export { default as Splash2 } from './Splash2';
+export { default as Onboarding1 } from './Onboarding1';
+export { default as Onboarding11 } from './Onboarding11';
+export { default as Onboarding12 } from './Onboarding12';
+export { default as Onboarding13 } from './Onboarding13';
+export { default as Onboarding14 } from './Onboarding14';
+export { default as ChooseInterest } from './ChooseInterest';
+export { default as ChooseInterest1 } from './ChooseInterest1';
+export { default as ChooseInterest2 } from './ChooseInterest2';
+export { default as Complete } from './Complete';
