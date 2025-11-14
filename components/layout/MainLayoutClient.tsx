@@ -25,7 +25,7 @@ export default function MainLayoutClient({ children }: { children: React.ReactNo
   }, [pathname]);
   
   return (
-    <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white transition-colors">
+    <div className="min-h-screen bg-white text-gray-900 transition-colors">
       {/* Header - Full width, independent of sidebar */}
       <Header />
       
@@ -42,7 +42,7 @@ export default function MainLayoutClient({ children }: { children: React.ReactNo
         <div className="max-w-md lg:max-w-2xl xl:max-w-4xl mx-auto px-4">
           {/* Navigation loading indicator */}
           {isNavigating && (
-            <div className="fixed top-16 left-0 right-0 z-40 h-1 bg-blue-500 animate-pulse"></div>
+            <div className="fixed top-16 left-0 right-0 z-40 h-1 bg-pink-600 animate-pulse"></div>
           )}
           {children}
         </div>

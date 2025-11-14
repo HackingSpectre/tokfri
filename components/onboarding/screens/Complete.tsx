@@ -8,7 +8,11 @@ export default function Complete() {
   const router = useRouter();
 
   const handleGoToLogin = () => {
-    router.push('/auth/login');
+    // This Complete screen is only used in the OnboardingFlow (educational flow)
+    // Mark onboarding education as viewed
+    localStorage.setItem('tokfri_onboarding_viewed', 'true');
+    // Go back to root to show login
+    router.push('/');
   };
 
   return (

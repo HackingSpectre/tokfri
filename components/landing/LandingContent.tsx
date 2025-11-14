@@ -37,21 +37,21 @@ export default function LandingContent() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-6 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-radial from-blue-900/20 via-black to-black"></div>
+    <div className="min-h-screen flex flex-col items-center justify-center px-6 relative overflow-hidden bg-white">
+      <div className="absolute inset-0 bg-gradient-radial from-pink-100 via-white to-white"></div>
       
       <div className="relative z-10 text-center space-y-8 max-w-md">
         <div className="space-y-4">
-          <h1 className="text-6xl font-bold text-blue-600">Tokfri</h1>
-          <p className="text-xl text-gray-300">Own Your Voice, Earn Your Influence</p>
-          <p className="text-sm text-gray-400">Powered by Sui Blockchain</p>
+          <h1 className="text-6xl font-bold text-pink-600">Tokfri</h1>
+          <p className="text-xl text-gray-700">Own Your Voice, Earn Your Influence</p>
+          <p className="text-sm text-gray-500">Powered by Sui Blockchain</p>
         </div>
 
         <div className="space-y-3">
           <button
             onClick={handleLogin}
             disabled={isLoading}
-            className="w-full py-4 px-6 glass rounded-xl font-semibold text-white hover:neon-border transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
+            className="w-full py-4 px-6 bg-pink-600 hover:bg-pink-700 rounded-xl font-semibold text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
           >
             {isLoading ? (
               <>
@@ -70,20 +70,8 @@ export default function LandingContent() {
               </>
             )}
           </button>
-          
-          <button
-            onClick={() => router.push('/feed')}
-            className="w-full py-3 px-6 text-gray-400 hover:text-white transition-all"
-          >
-            Continue as Guest (Read-only)
-          </button>
         </div>
 
-        <div className="text-xs text-gray-500 space-y-1">
-          <p>✓ No wallet installation required</p>
-          <p>✓ Your Google account creates a Sui wallet</p>
-          <p>✓ Full ownership of your data and earnings</p>
-        </div>
       </div>
     </div>
   );

@@ -27,7 +27,7 @@ export default function PostHeader({ user, createdAt }: PostHeaderProps) {
         href={`/profile/${user.username}`}
         className="flex-shrink-0 group"
       >
-        <div className="w-12 h-12 bg-gradient-to-br from-primary to-blue-600 rounded-full flex items-center justify-center overflow-hidden group-hover:scale-105 transition-transform">
+        <div className="w-12 h-12 bg-gradient-to-br from-pink-400 to-pink-600 rounded-full flex items-center justify-center overflow-hidden group-hover:scale-105 transition-transform">
           {user.avatarUrl ? (
             <img 
               src={user.avatarUrl} 
@@ -45,18 +45,18 @@ export default function PostHeader({ user, createdAt }: PostHeaderProps) {
         <div className="flex items-center gap-2 flex-wrap">
           <Link 
             href={`/profile/${user.username}`}
-            className="font-semibold hover:text-primary transition-colors truncate"
+            className="font-semibold text-gray-900 hover:text-pink-600 transition-colors truncate"
           >
             {user.displayName || `@${user.username}`}
           </Link>
           
           {user.verified && (
-            <CheckCircle size={16} className="text-primary flex-shrink-0" />
+            <CheckCircle size={16} className="text-pink-600 flex-shrink-0" />
           )}
           
-          <span className="text-gray-400 text-sm">@{user.username}</span>
-          <span className="text-gray-500 text-sm">•</span>
-          <span className="text-gray-400 text-sm">
+         
+          <span className="text-gray-400 text-sm">•</span>
+          <span className="text-gray-500 text-sm">
             {formatTimeAgo(createdAt)}
           </span>
         </div>

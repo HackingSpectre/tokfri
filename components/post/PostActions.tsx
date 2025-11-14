@@ -37,15 +37,15 @@ export default function PostActions({
   };
 
   return (
-    <div className="flex items-center justify-between pt-3 border-t border-white/5">
+    <div className="flex items-center justify-between pt-3 border-t border-gray-200">
       {/* Like */}
       <button
         onClick={handleLike}
         disabled={isLiking}
         className={`flex items-center gap-2 px-3 py-2 rounded-lg transition-all group ${
           isLiked 
-            ? 'text-red-500 hover:bg-red-500/10' 
-            : 'text-gray-400 hover:text-red-400 hover:bg-red-500/10'
+            ? 'text-pink-600 hover:bg-pink-50' 
+            : 'text-gray-500 hover:text-pink-600 hover:bg-pink-50'
         }`}
       >
         <Heart 
@@ -62,7 +62,7 @@ export default function PostActions({
       {/* Comment */}
       <button
         onClick={onComment}
-        className="flex items-center gap-2 px-3 py-2 rounded-lg text-gray-400 hover:text-blue-400 hover:bg-blue-500/10 transition-all group"
+        className="flex items-center gap-2 px-3 py-2 rounded-lg text-gray-500 hover:text-pink-600 hover:bg-pink-50 transition-all group"
       >
         <MessageCircle size={18} className="group-hover:scale-110 transition-transform" />
         <span className="text-sm font-medium">
@@ -73,7 +73,7 @@ export default function PostActions({
       {/* Repost */}
       <button
         onClick={onRepost}
-        className="flex items-center gap-2 px-3 py-2 rounded-lg text-gray-400 hover:text-green-400 hover:bg-green-500/10 transition-all group"
+        className="flex items-center gap-2 px-3 py-2 rounded-lg text-gray-500 hover:text-pink-600 hover:bg-pink-50 transition-all group"
       >
         <Repeat2 size={18} className="group-hover:scale-110 transition-transform" />
         <span className="text-sm font-medium">
@@ -82,26 +82,26 @@ export default function PostActions({
       </button>
 
       {/* Tip */}
-      <button
+      {/* <button
         onClick={onTip}
-        className="flex items-center gap-2 px-3 py-2 rounded-lg text-gray-400 hover:text-yellow-400 hover:bg-yellow-500/10 transition-all group"
+        className="flex items-center gap-2 px-3 py-2 rounded-lg text-gray-500 hover:text-pink-600 hover:bg-pink-50 transition-all group"
       >
         <Coins size={18} className="group-hover:scale-110 transition-transform" />
         <span className="text-sm font-medium">
           {tipAmount > 0 ? `${tipAmount} SUI` : 'Tip'}
         </span>
-      </button>
+      </button> */}
 
       {/* Share */}
       <button
         onClick={onShare}
-        className="flex items-center gap-1 px-3 py-2 rounded-lg text-gray-400 hover:text-gray-300 hover:bg-white/5 transition-all group"
+        className="flex items-center gap-1 px-3 py-2 rounded-lg text-gray-500 hover:text-pink-600 hover:bg-pink-50 transition-all group"
       >
         <Share size={18} className="group-hover:scale-110 transition-transform" />
       </button>
 
       {/* More */}
-      <button className="p-2 rounded-lg text-gray-400 hover:text-gray-300 hover:bg-white/5 transition-all group">
+      <button className="p-2 rounded-lg text-gray-500 hover:text-pink-600 hover:bg-pink-50 transition-all group">
         <MoreHorizontal size={18} className="group-hover:scale-110 transition-transform" />
       </button>
     </div>

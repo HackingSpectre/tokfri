@@ -90,17 +90,17 @@ export default function AuthCallback() {
       // Clear ephemeral data
       sessionStorage.removeItem('zklogin_ephemeral');
 
-      // Check if user has a username registered
+      // Check if user has a username registered in DB
       const hasUsername = await checkUsername(address);
 
       // Dispatch custom event to notify WalletContext
       window.dispatchEvent(new Event('auth-complete'));
 
       if (hasUsername) {
-        // Redirect to feed
+        // Existing user - redirect directly to feed
         router.push('/feed');
       } else {
-        // Redirect to onboarding to create username
+        // New user - redirect to onboarding to create username and pick interests
         router.push('/onboarding');
       }
     } catch (error) {
@@ -166,15 +166,15 @@ export default function AuthCallback() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-600 via-pink-500 to-red-500">
-      <div className="bg-white/10 backdrop-blur-lg p-8 rounded-2xl shadow-2xl border border-white/20 max-w-md w-full mx-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-pink-100 via-white to-white">
+      <div className="bg-white border border-gray-200 shadow-2xl p-8 rounded-2xl max-w-md w-full mx-4">
         {status === 'processing' && (
           <div className="text-center">
             <div className="mb-6">
-              <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-white mx-auto"></div>
+              <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-pink-600 mx-auto"></div>
             </div>
-            <h2 className="text-2xl font-bold text-white mb-2">Authenticating...</h2>
-            <p className="text-white/80">
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">Authenticating...</h2>
+            <p className="text-gray-600">
               Please wait while we complete your login
             </p>
           </div>
@@ -184,14 +184,14 @@ export default function AuthCallback() {
           <div className="text-center">
             <div className="mb-6">
               <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto">
-                <svg className="w-8 h-8 text-red-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </div>
             </div>
-            <h2 className="text-2xl font-bold text-white mb-2">Authentication Failed</h2>
-            <p className="text-white/80 mb-4">{errorMessage}</p>
-            <p className="text-white/60 text-sm">Redirecting to home page...</p>
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">Authentication Failed</h2>
+            <p className="text-gray-600 mb-4">{errorMessage}</p>
+            <p className="text-gray-500 text-sm">Redirecting to home page...</p>
           </div>
         )}
       </div>

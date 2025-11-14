@@ -9,9 +9,9 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#3B82F6',
-          dark: '#1E40AF',
-          light: '#60A5FA',
+          DEFAULT: '#EC4899',
+          dark: '#DB2777',
+          light: '#F472B6',
         },
         neon: {
           blue: '#00D4FF',
@@ -31,8 +31,8 @@ module.exports = {
       },
       keyframes: {
         glow: {
-          '0%': { boxShadow: '0 0 5px #3B82F6, 0 0 10px #3B82F6' },
-          '100%': { boxShadow: '0 0 10px #3B82F6, 0 0 20px #3B82F6, 0 0 30px #3B82F6' },
+          '0%': { boxShadow: '0 0 5px #EC4899, 0 0 10px #EC4899' },
+          '100%': { boxShadow: '0 0 10px #EC4899, 0 0 20px #EC4899, 0 0 30px #EC4899' },
         },
         float: {
           '0%, 100%': { transform: 'translateY(0)' },

@@ -17,7 +17,7 @@ export function EmptyConversations({ onWriteMessage }: EmptyConversationsProps) 
       {onWriteMessage && (
         <button 
           onClick={onWriteMessage}
-          className="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-full font-semibold text-white transition-colors"
+          className="px-6 py-3 bg-pink-600 hover:bg-pink-700 rounded-full font-semibold text-white transition-colors"
         >
           Write a message
         </button>

@@ -46,7 +46,7 @@ export default function MessageInput({
   };
 
   return (
-    <div className="bg-black/40 backdrop-blur-xl border-t border-gray-800 p-4">
+    <div className="bg-white border-t border-gray-200 p-4">
       <MediaPreview 
         mediaUrls={mediaUrls}
         onRemoveImage={onRemoveImage}
@@ -56,32 +56,32 @@ export default function MessageInput({
         <div className="flex items-center gap-2">
           <button 
             onClick={() => fileInputRef.current?.click()}
-            className="p-2 hover:bg-gray-800 rounded-full transition-colors disabled:opacity-50"
+            className="p-2 hover:bg-pink-50 rounded-full transition-colors disabled:opacity-50"
             disabled={isUploading || mediaUrls.length >= 4 || disabled}
             title={mediaUrls.length >= 4 ? "Maximum 4 images" : "Add images"}
           >
             {isUploading ? (
-              <Loader2 size={20} className="animate-spin text-blue-400" />
+              <Loader2 size={20} className="animate-spin text-pink-600" />
             ) : (
-              <Image size={20} className="text-blue-400" />
+              <Image size={20} className="text-pink-600" />
             )}
           </button>
           <button 
-            className="p-2 hover:bg-gray-800 rounded-full transition-colors"
+            className="p-2 hover:bg-pink-50 rounded-full transition-colors"
             disabled={disabled}
           >
-            <Gift size={20} className="text-blue-400" />
+            <Gift size={20} className="text-pink-600" />
           </button>
           <button 
-            className="p-2 hover:bg-gray-800 rounded-full transition-colors"
+            className="p-2 hover:bg-pink-50 rounded-full transition-colors"
             disabled={disabled}
           >
-            <Smile size={20} className="text-blue-400" />
+            <Smile size={20} className="text-pink-600" />
           </button>
         </div>
         
         <div className="flex-1 relative">
-          <div className="bg-gray-900 border border-gray-700 rounded-3xl overflow-hidden">
+          <div className="bg-white border border-gray-300 rounded-3xl overflow-hidden">
             <textarea
               ref={textareaRef}
               value={newMessage}
@@ -97,7 +97,7 @@ export default function MessageInput({
                 }
               }}
               placeholder="Start a new message"
-              className="w-full bg-transparent px-4 py-3 pr-12 text-white placeholder-gray-500 resize-none max-h-32 focus:outline-none"
+              className="w-full bg-transparent px-4 py-3 pr-12 text-gray-900 placeholder-gray-500 resize-none max-h-32 focus:outline-none"
               rows={1}
               style={{
                 minHeight: '44px',
@@ -113,8 +113,8 @@ export default function MessageInput({
           disabled={(!newMessage.trim() && mediaUrls.length === 0) || isUploading || disabled}
           className={`p-2 rounded-full transition-all ${
             (newMessage.trim() || mediaUrls.length > 0) && !isUploading && !disabled
-              ? 'bg-blue-600 hover:bg-blue-700 text-white' 
-              : 'bg-gray-800 text-gray-500 cursor-not-allowed'
+              ? 'bg-pink-600 hover:bg-pink-700 text-white' 
+              : 'bg-gray-200 text-gray-500 cursor-not-allowed'
           }`}
         >
           <Send size={20} />

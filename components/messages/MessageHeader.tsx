@@ -15,7 +15,7 @@ export default function MessageHeader({
   onBack
 }: MessageHeaderProps) {
   return (
-    <div className="bg-black/40 backdrop-blur-xl border-b border-gray-800 p-4 flex items-center gap-4 sticky top-0 z-10">
+    <div className="bg-white border-b border-gray-200 p-4 flex items-center gap-4 sticky top-0 z-10">
       <button 
         onClick={onBack} 
         className="p-2 hover:bg-gray-800 rounded-full transition-colors flex items-center justify-center"

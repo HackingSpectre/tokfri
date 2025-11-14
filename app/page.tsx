@@ -2,39 +2,31 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import OnboardingFlow from '@/components/onboarding/OnboardingFlow';
+import LandingContent from '@/components/landing/LandingContent';
 
 export default function LandingPage() {
   const router = useRouter();
-  const [showOnboarding, setShowOnboarding] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Check if this is a first-time user
-    const hasCompletedOnboarding = localStorage.getItem('tokfri_onboarding_complete');
-    const hasExistingUser = localStorage.getItem('tokfri_user');
+    // Check if user has an active session
     const hasSession = localStorage.getItem('zklogin_session');
+    const hasUser = localStorage.getItem('tokfri_user');
     
-    // If user has logged in before (NOT just completed onboarding), go to login
-    if ((hasExistingUser || hasSession) && hasCompletedOnboarding) {
-      router.push('/auth/login');
+    // If user has active session and user profile, redirect to feed
+    if (hasSession && hasUser) {
+      router.push('/feed');
     } else {
-      // First-time user OR in onboarding process - show onboarding
-      setShowOnboarding(true);
+      // Show landing page for login
+      setIsLoading(false);
     }
-    
-    setIsLoading(false);
   }, [router]);
 
-  // Show loading state
+  // Show loading while checking session
   if (isLoading) {
-    return (
-      <div className="min-h-screen w-full bg-white flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-600"></div>
-      </div>
-    );
+    return null; // Splash screen from layout.tsx will show
   }
 
-  // Show onboarding only for first-time users
-  return showOnboarding ? <OnboardingFlow /> : null;
+  // Show landing/login page
+  return <LandingContent />;
 }

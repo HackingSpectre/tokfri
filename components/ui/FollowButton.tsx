@@ -87,16 +87,16 @@ export default function FollowButton({
   const variantClasses = {
     default: initialIsFollowing
       ? 'bg-gray-600 hover:bg-red-600 text-white border border-gray-500 hover:border-red-500'
-      : 'bg-primary hover:bg-primary-dark text-white border border-primary hover:border-primary-dark',
+      : 'bg-pink-600 hover:bg-pink-700 text-white border border-pink-600 hover:border-pink-700',
     compact: initialIsFollowing
       ? 'bg-transparent hover:bg-red-500/10 text-gray-400 hover:text-red-400 border border-gray-600 hover:border-red-500'
-      : 'bg-transparent hover:bg-primary/10 text-primary hover:text-primary-light border border-primary hover:border-primary-light',
+      : 'bg-transparent hover:bg-pink-100 text-pink-600 hover:text-pink-700 border border-pink-600 hover:border-pink-700',
     outline: initialIsFollowing
-      ? 'bg-transparent hover:bg-red-500/10 text-white hover:text-red-400 border border-white/20 hover:border-red-500'
-      : 'bg-transparent hover:bg-primary/10 text-white hover:text-primary border border-white/20 hover:border-primary',
+      ? 'bg-transparent hover:bg-red-500/10 text-gray-900 hover:text-red-500 border border-gray-300 hover:border-red-500'
+      : 'bg-transparent hover:bg-pink-100 text-gray-900 hover:text-pink-600 border border-gray-300 hover:border-pink-600',
     secondary: initialIsFollowing
       ? 'bg-gray-700 hover:bg-red-600 text-white border border-gray-600 hover:border-red-500'
-      : 'bg-blue-600 hover:bg-blue-700 text-white border border-blue-600 hover:border-blue-700'
+      : 'bg-pink-600 hover:bg-pink-700 text-white border border-pink-600 hover:border-pink-700'
   };
 
   return (

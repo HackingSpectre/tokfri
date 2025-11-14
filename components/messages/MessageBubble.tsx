@@ -36,18 +36,18 @@ export default function MessageBubble({
       
       <div className={`max-w-[80%] md:max-w-md ${isOwn ? 'ml-auto' : ''}`}>
         {message.replyTo && (
-          <div className="mb-2 p-3 bg-gray-800/50 rounded-lg border-l-2 border-blue-500 text-sm">
-            <p className="text-gray-400 text-xs mb-1">
+          <div className="mb-2 p-3 bg-pink-50 rounded-lg border-l-2 border-pink-600 text-sm">
+            <p className="text-gray-600 text-xs mb-1">
               Replying to @{message.replyTo.sender.username}
             </p>
-            <p className="text-gray-300">{message.replyTo.content}</p>
+            <p className="text-gray-900">{message.replyTo.content}</p>
           </div>
         )}
         
         <div className={`rounded-2xl px-4 py-3 ${
           isOwn 
-            ? 'bg-blue-600 text-white' 
-            : 'bg-gray-800 text-white border border-gray-700'
+            ? 'bg-pink-600 text-white' 
+            : 'bg-gray-100 text-gray-900 border border-gray-200'
         }`}>
           <p className="text-[15px] leading-5">{message.content}</p>
           

@@ -38,7 +38,7 @@ export default function ConversationItem({
           )}
         </div>
         {conversation.unreadCount > 0 && (
-          <div className="absolute -top-1 -right-1 w-5 h-5 bg-blue-600 rounded-full flex items-center justify-center">
+          <div className="absolute -top-1 -right-1 w-5 h-5 bg-pink-600 rounded-full flex items-center justify-center">
             <span className="text-xs text-white font-bold">
               {conversation.unreadCount > 9 ? '9+' : conversation.unreadCount}
             </span>

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import MainLayout from '@/components/layout/MainLayout';
 import { useWallet } from '@/lib/context/WalletContext';
 import { useRouter } from 'next/navigation';
@@ -11,7 +11,6 @@ import {
   NotificationBanner,
   PostComposer,
   InfoCards,
-  LoginRequired
 } from '@/components/mint';
 
 export default function MintPageContent() {
@@ -131,12 +130,16 @@ export default function MintPageContent() {
   const isOverLimit = charCount > MAX_CHARS;
   const canPost = Boolean(content.trim().length > 0 && !isOverLimit && user);
 
+  // Redirect to login if no user
+  useEffect(() => {
+    if (!user) {
+      router.push('/');
+    }
+  }, [user, router]);
+
+  // Show nothing while redirecting
   if (!user) {
-    return (
-      <MainLayout>
-        <LoginRequired />
-      </MainLayout>
-    );
+    return null;
   }
 
   return (

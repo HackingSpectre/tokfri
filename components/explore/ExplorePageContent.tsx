@@ -8,7 +8,7 @@ import { useUserSearch, useSearchHistory } from '@/lib/hooks/useUserSearch';
 import { useWallet } from '@/lib/context/WalletContext';
 
 // Import modular components
-import ExploreHeader from '@/components/explore/ExploreHeader';
+
 import SearchSection from '@/components/explore/SearchSection';
 import TabNavigation, { ExploreTab } from '@/components/explore/TabNavigation';
 import UserSearchResults from '@/components/explore/UserSearchResults';
@@ -25,6 +25,13 @@ export default function ExplorePageContent() {
   const [trendingUsers, setTrendingUsers] = useState<any[]>([]);
   const [isLoadingTrending, setIsLoadingTrending] = useState(false);
   const hasInitialized = useRef(false);
+
+  // Redirect to login if no user
+  useEffect(() => {
+    if (!user) {
+      router.push('/');
+    }
+  }, [user, router]);
 
   // Search functionality
   const {
@@ -148,10 +155,15 @@ export default function ExplorePageContent() {
     }
   };
 
+  // Show nothing while redirecting
+  if (!user) {
+    return null;
+  }
+
   return (
     <MainLayout>
       <div className="space-y-6 pb-6">
-        <ExploreHeader />
+       
 
         <div className="px-4 space-y-6">
           <SearchSection

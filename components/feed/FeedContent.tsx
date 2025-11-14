@@ -40,11 +40,11 @@ export default function FeedContent({
         <div className="text-red-400 mb-4">
           <span className="text-2xl">⚠️</span>
         </div>
-        <h3 className="text-lg font-medium text-white mb-2">Something went wrong</h3>
-        <p className="text-gray-400 mb-4">{error}</p>
+        <h3 className="text-lg font-medium text-gray-900 mb-2">Something went wrong</h3>
+        <p className="text-gray-600 mb-4">{error}</p>
         <button
           onClick={onRetry}
-          className="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-md transition-colors"
+          className="px-4 py-2 bg-pink-600 hover:bg-pink-700 text-white rounded-md transition-colors"
         >
           Try again
         </button>
@@ -59,14 +59,14 @@ export default function FeedContent({
         <div className="text-gray-600 mb-4">
           <span className="text-4xl">📝</span>
         </div>
-        <h3 className="text-lg font-medium text-white mb-2">Welcome to your feed!</h3>
-        <p className="text-gray-400 mb-4">
+        <h3 className="text-lg font-medium text-gray-900 mb-2">Welcome to your feed!</h3>
+        <p className="text-gray-600 mb-4">
           Start following people or create your first post to see content here.
         </p>
         {user && (
           <button
             onClick={onMintPost}
-            className="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-md transition-colors"
+            className="px-4 py-2 bg-pink-600 hover:bg-pink-700 text-white rounded-md transition-colors"
           >
             Create your first post
           </button>
@@ -75,11 +75,11 @@ export default function FeedContent({
     );
   }
 
-  // Posts List
+  // Posts List - Clean and Compact
   return (
-    <div className="space-y-4">
+    <div className="divide-y divide-gray-200">
       {posts.map((post) => (
-        <div key={post.id} className="bg-black border border-gray-800 rounded-lg p-4">
+        <div key={post.id} className="bg-white px-4 py-4">
           <Post 
             post={post}
             onLike={onLike}

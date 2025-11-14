@@ -24,7 +24,7 @@ export default function MediaPreview({ mediaUrls, onRemoveImage }: MediaPreviewP
             />
             <button
               onClick={() => onRemoveImage(index)}
-              className="absolute top-1 right-1 p-1 bg-black/60 hover:bg-black/80 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+              className="absolute top-1 right-1 p-1 bg-white/80 hover:bg-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
             >
               <X size={12} className="text-white" />
             </button>

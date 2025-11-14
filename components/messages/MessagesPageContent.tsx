@@ -4,7 +4,7 @@ import MainLayout from '@/components/layout/MainLayout';
 import { useWallet } from '@/lib/context/WalletContext';
 import { useSocket } from '@/lib/context/SocketContext';
 import { useEffect, useCallback } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, useRouter } from 'next/navigation';
 
 // Import modular components
 import {
@@ -36,6 +36,14 @@ export default function MessagesPageContent() {
   const { socket, isConnected } = useSocket();
   const searchParams = useSearchParams();
   const targetUsername = searchParams?.get('user');
+  const router = useRouter();
+
+  // Redirect to login if no user
+  useEffect(() => {
+    if (!user) {
+      router.push('/');
+    }
+  }, [user, router]);
 
   // Conversations management
   const {

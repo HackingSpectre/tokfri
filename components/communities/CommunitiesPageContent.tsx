@@ -2,6 +2,8 @@
 
 import MainLayout from '@/components/layout/MainLayout';
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { useWallet } from '@/lib/context/WalletContext';
 import { ArrowLeft, Loader2, Users, Lock, Search, Plus } from 'lucide-react';
 
 interface Community {
@@ -24,14 +26,25 @@ interface Community {
 }
 
 export default function CommunitiesPageContent() {
+  const router = useRouter();
+  const { user } = useWallet();
   const [selectedCommunity, setSelectedCommunity] = useState<string | null>(null);
   const [communities, setCommunities] = useState<Community[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
 
+  // Redirect to login if no user
   useEffect(() => {
-    fetchCommunities();
-  }, [searchQuery]);
+    if (!user) {
+      router.push('/');
+    }
+  }, [user, router]);
+
+  useEffect(() => {
+    if (user) {
+      fetchCommunities();
+    }
+  }, [searchQuery, user]);
 
   async function fetchCommunities() {
     try {
@@ -51,11 +64,13 @@ export default function CommunitiesPageContent() {
   }
 
   async function joinCommunity(communityId: string) {
+    if (!user) return;
+    
     try {
       const response = await fetch(`/api/communities/${communityId}/join`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ userId: 'user123' }), // Replace with actual user ID
+        body: JSON.stringify({ userId: user.id }),
       });
 
       if (response.ok) {
@@ -65,6 +80,11 @@ export default function CommunitiesPageContent() {
     } catch (error) {
       console.error('Failed to join community:', error);
     }
+  }
+
+  // Show nothing while redirecting
+  if (!user) {
+    return null;
   }
 
   if (selectedCommunity) {

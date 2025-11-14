@@ -125,7 +125,7 @@ export default function SearchInput({
 
       {/* Search suggestions backdrop */}
       {isFocused && query && (
-        <div className="absolute inset-x-0 top-full mt-2 bg-black/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl z-50 max-h-80 overflow-hidden">
+        <div className="absolute inset-x-0 top-full mt-2 bg-white backdrop-blur-xl border border-gray-200 rounded-xl shadow-2xl z-50 max-h-80 overflow-hidden">
           {/* This will be populated by the parent component */}
         </div>
       )}

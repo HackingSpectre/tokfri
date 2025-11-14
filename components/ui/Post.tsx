@@ -76,7 +76,7 @@ export default function Post({ post, onLike, showComments = false }: PostProps) 
   };
 
   return (
-    <article className="glass rounded-xl p-6 space-y-4 hover:bg-white/5 transition-colors">
+    <article className="space-y-3">
       {/* Post Header */}
       <PostHeader 
         user={post.user} 
@@ -107,7 +107,7 @@ export default function Post({ post, onLike, showComments = false }: PostProps) 
 
       {/* Comments Section */}
       {showCommentsSection && (
-        <div className="pt-4 border-t border-white/5">
+        <div className="pt-3 border-t border-gray-200 dark:border-gray-800">
           <Comments
             postId={post.id}
             onCommentAdd={handleCommentAdd}
